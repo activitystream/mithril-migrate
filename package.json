@@ -1,0 +1,31 @@
+{
+  "name": "mithril-migrate",
+  "version": "1.0.0",
+  "description": "A utility for running mithril 1.0 code inside a mithril 0.2x app",
+  "main": "index.js",
+  "dependencies": {
+    "mithril": "github:lhorie/mithril.js#rewrite"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/activitystream/mithril-migrate.git"
+  },
+  "keywords": [
+    "mithril",
+    "migration"
+  ],
+  "contributors": [
+    {"name": "Einar Norðfjörð", "email": "root@activitystream.com"},
+    {"name": "Eerikki Elovirta", "email": "eerikki@activitystream.com"}
+  ],
+  "author": "Activity Stream",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/activitystream/mithril-migrate/issues"
+  },
+  "homepage": "https://github.com/activitystream/mithril-migrate#readme"
+}
