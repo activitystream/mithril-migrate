@@ -1,9 +1,9 @@
 'use strict';
 
 // takes a component written for mithril@1.0 and a mithril@0.2.x instance
-function migrate(m1component, m, m1) {
-	if (migrate.m) m = migrate.m;
-	if (migrate.m1) m1 = migrate.m1;
+function migrate(m1component) {
+	var m = migrate.m;
+	var m1 = migrate.m1;
 
 	function unmount(ctrl) {
 		if (ctrl.el) {
