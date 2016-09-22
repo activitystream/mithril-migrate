@@ -1,52 +1,52 @@
 'use strict';
 
-var m1 = require('mithril');
-
-
-var unmount = function unmount(ctrl) {
-	if (ctrl.el) {
-		m.mount(ctrl.el, null);
-		ctrl.el = undefined;
-	}
-};
-
 // takes a component written for mithril@1.0 and a mithril@0.2.x instance
-function wrapComponent(m1component, m) {
+function migrate(m1component, m, m1) {
+	if (migrate.m) m = migrate.m;
+	if (migrate.m1) m1 = migrate.m1;
+
+	function unmount(ctrl) {
+		if (ctrl.el) {
+			m1.mount(ctrl.el, null);
+			ctrl.el = undefined;
+		}
+	}
+
 	return {
-		controller: function controller() {
+		controller: function() {
+
 			var ctrl = {
 				el: undefined
 			};
 			ctrl.onunload = function () {
 				unmount(ctrl);
 			};
-
-            ctrl.margs = [m1component].concat([].slice.call(arguments));
 			ctrl.component = undefined;
 			return ctrl;
 		},
 
-		view: function view(ctrl) {
+		view: function(ctrl) {
+			var args = [].slice.call(arguments, 1);
 			if (!ctrl.component) {
 				ctrl.component = {
 					view: function view() {
-						return m.apply(undefined, ctrl.margs);
+						return m1.apply(undefined, [m1component].concat(args));
 					}
 				};
 			}
 			return m('', {
-				config: function config(el, is_init, ctx) {
-					if (is_init) {
+				config: function(el, is_init, ctx) {
+					if (!is_init) {
 						ctrl.el = el;
 						ctx.onunload = function () {
-							return unmount(ctrl);
+							unmount(ctrl);
 						};
 					}
-					m.mount(el, ctrl.component);
+					m1.mount(el, ctrl.component);
 				}
 			});
 		}
 	};
 };
 
-module.exports = wrapComponent;
+module.exports = migrate;
