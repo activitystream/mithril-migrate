@@ -1,4 +1,4 @@
-# usage
+# Usage
 
 ```javascript
     // app.js
