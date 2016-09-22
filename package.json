@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "A utility for running mithril 1.0 code inside a mithril 0.2x app",
   "main": "index.js",
-  "dependencies": {
-    "mithril": "github:lhorie/mithril.js#rewrite"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
