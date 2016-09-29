@@ -17,8 +17,8 @@
     "migration"
   ],
   "contributors": [
-    {"name": "Einar Norðfjörð", "email": "root@activitystream.com"},
-    {"name": "Eerikki Elovirta", "email": "eerikki@activitystream.com"}
+    {"name": "Eerikki Elovirta", "email": "eerikki@activitystream.com"},
+    {"name": "Einar Norðfjörð", "email": "root@activitystream.com"}
   ],
   "author": "Activity Stream",
   "license": "MIT",
